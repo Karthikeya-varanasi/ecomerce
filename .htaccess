@@ -1,0 +1,21 @@
+# Disable directory browsing 
+Options -Indexes
+    RewriteEngine On 
+	
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{SCRIPT_FILENAME} !-f
+	 php_value max_input_vars 30000
+
+
+RewriteCond %{REQUEST_URI} index\.php
+RewriteRule .* http://localhost/mega/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} index\.php
+RewriteRule .* https://megatronindia.in/ [R=301,L]
+
+
+RewriteRule ^brand/([^/]+)/?$ brand.php?brands_id=$1 [NC,L,QSA]
+RewriteRule ^category/([^/]+)/?$ all.php?prodect_catogery_id=$1 [NC,L,QSA]
+
+RewriteRule ^categories/([^/]+)/?$ hoverboards.php?cat_id=$1 [NC,L,QSA]
+RewriteRule ^products/([^/]+)/?$ prodect.php?product_search_id=$1 [NC,L,QSA]
